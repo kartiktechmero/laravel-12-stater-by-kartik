@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Enums\AppleSubSubscriptionStatusEnum;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,15 +16,14 @@ return new class extends Migration
     {
         Schema::create('app_users', function (Blueprint $table) {
             $table->id();
-            $table->string('ud_id')->index();
-            $table->string('token_id');
+            $table->string('ud_id')->index()->comment('From apple take transection it which is uniq one');
+            $table->string('token_id')->nullable();
+            $table->string('apple_subscription_status')->default(AppleSubSubscriptionStatusEnum::NONE)->comment('take from AppleSubSubscriptionStatusEnum');
             $table->text('social_id')->nullable();
-            $table->string('ip')->nullable();
-            $table->string('current_app_version', 10)->nullable()->default('1');
-            $table->string('token_id')->nullable()->change();
+            $table->string('ip', 45)->nullable();
+            $table->string('current_app_version', 10)->nullable()->default('1.0');
             $table->string('email')->nullable();
-            $table->string('firstname')->nullable();
-            $table->string('lastname')->nullable();
+            $table->string('name')->nullable();
             $table->string('environment')->nullable();
             $table->string('bundle_id')->nullable();
             $table->text('access_token')->nullable();

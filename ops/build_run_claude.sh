@@ -16,7 +16,7 @@ cd name
 cp .env.example .env
 composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
-sudo -H -u www-data bash -c 'php artisan passport:install'
+sudo -H -u www-data bash -c 'php artisan migrate:fresh --seed'
+#sudo -H -u www-data bash -c 'php artisan passport:install'
 sudo -H -u www-data bash -c 'php artisan passport:client --personal'
 sudo -H -u www-data bash -c 'php artisan storage:link'
-sudo -H -u www-data bash -c 'php artisan migrate:fresh --seed'

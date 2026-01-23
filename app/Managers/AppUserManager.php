@@ -27,5 +27,4 @@ class AppUserManager implements BaseManager
     {
         return self::baseQuery()->where('social_id', $social_id)->first();
     }
-
 }
