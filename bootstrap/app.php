@@ -19,9 +19,6 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'verify.signature' => VerifySignature::class,
         ]);
-        $middleware->group('web', [
-            LogRequestHeaders::class,
-        ]);
 
         $middleware->group('api', [
             LogRequestHeaders::class,

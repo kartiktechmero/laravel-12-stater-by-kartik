@@ -17,11 +17,11 @@ return [
     'exception_mail' => env('EXCEPTION_MAIL', ''),
 
     'postmark' => [
-        'token' => env('POSTMARK_TOKEN'),
+        'key' => env('POSTMARK_API_KEY'),
     ],
 
     'resend' => [
-        'key' => env('RESEND_KEY'),
+        'key' => env('RESEND_API_KEY'),
     ],
 
     'ses' => [
@@ -35,12 +35,6 @@ return [
             'bot_user_oauth_token' => env('SLACK_BOT_USER_OAUTH_TOKEN'),
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
-    ],
-    'apple' => [
-        'private_key' => env('APPLE_PRIVATE_KEY'),
-        'key_id' => env('APPLE_KEY_ID'),
-        'issuer_id' => env('APPLE_ISSUER_ID'),
-        'bundle_id' => env('APPLE_BUNDLE_ID'),
     ],
 
     'bunny' => [
